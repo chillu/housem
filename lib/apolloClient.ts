@@ -26,6 +26,7 @@ const resetTokenLink = onError(({ networkError }) => {
   if (
     networkError &&
     networkError.name === "ServerError" &&
+    // @ts-ignore - server error is not typed (https://www.apollographql.com/docs/react/api/link/apollo-link-error/#response)
     networkError.statusCode === 401
   ) {
     accessToken = null;
