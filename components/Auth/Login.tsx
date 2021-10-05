@@ -1,17 +1,19 @@
 import Router from "next/router";
 import { Button, Box } from "@chakra-ui/react";
 
-const Login = () => {
+type Props = {
+  title?: string;
+};
+
+const Login = ({ title = "Log In" }: Props) => {
   return (
-    <Box>
-      <Button
-        onClick={() => {
-          Router.push("/api/login");
-        }}
-      >
-        Log In or Sign up
-      </Button>
-    </Box>
+    <Button
+      onClick={() => {
+        Router.push("/api/login");
+      }}
+    >
+      {title}
+    </Button>
   );
 };
 

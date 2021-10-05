@@ -3,8 +3,7 @@ import Login from "../Auth/Login";
 
 export default function Landing() {
   return (
-    <Box>
-      <Heading>HouseM - Maintain your own four walls</Heading>
+    <Box mb={8}>
       <Text>
         It's too easy to forget about regular checks. Get email reminders about
         them!

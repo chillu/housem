@@ -1,8 +1,9 @@
-import { Container } from "@chakra-ui/react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import { withApollo } from "../lib/withApollo";
 import { useFetchUser } from "../lib/user";
 
 import Header from "../components/Header";
+import Layout from "../components/Layout";
 import ActivityList from "../components/Activity/ActivityList";
 import Landing from "../components/Landing/Landing";
 
@@ -15,16 +16,17 @@ const IndexPage = () => {
   // TODO Server-render this outside of authenticated state
   if (!loading && !user) {
     return (
-      <Container>
+      <Layout>
+        <Header isLoggedIn={false} />
         <Landing />
-      </Container>
+      </Layout>
     );
   }
   return (
-    <Container>
-      <Header />
+    <Layout>
+      <Header isLoggedIn={true} />
       <ActivityList />
-    </Container>
+    </Layout>
   );
 };
 
