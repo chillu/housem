@@ -1,18 +1,23 @@
 table:
-  name: areas
+  name: templates
   schema: public
+object_relationships:
+- name: area
+  using:
+    foreign_key_constraint_on: area_id
 array_relationships:
-- name: activities
+- name: my_activities
   using:
     foreign_key_constraint_on:
-      column: area_id
+      column: template_id
       table:
-        name: templates
+        name: activities
         schema: public
 select_permissions:
 - permission:
     columns:
     - id
     - title
+    - area_id
     filter: {}
   role: user

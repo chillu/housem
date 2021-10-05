@@ -2,22 +2,43 @@ table:
   name: activities
   schema: public
 object_relationships:
-- name: area
+- name: activity
   using:
-    foreign_key_constraint_on: area_id
-array_relationships:
-- name: my_activities
-  using:
-    foreign_key_constraint_on:
-      column: activity_id
-      table:
-        name: my_activities
-        schema: public
+    foreign_key_constraint_on: template_id
+insert_permissions:
+- permission:
+    backend_only: false
+    check:
+      user_id:
+        _eq: X-Hasura-User-ID
+    columns:
+    - user_id
+    - template_id
+    - id
+  role: user
 select_permissions:
 - permission:
     columns:
     - id
-    - title
-    - area_id
-    filter: {}
+    - template_id
+    - user_id
+    filter:
+      user_id:
+        _eq: X-Hasura-User-ID
+  role: user
+update_permissions:
+- permission:
+    check: {}
+    columns:
+    - template_id
+    - user_id
+    filter:
+      user_id:
+        _eq: X-Hasura-User-ID
+  role: user
+delete_permissions:
+- permission:
+    filter:
+      user_id:
+        _eq: X-Hasura-User-ID
   role: user
