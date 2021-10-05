@@ -1,13 +1,18 @@
-import ActivityItem from "./ActivityItem";
-import { Activity } from "../../types";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
+import { Stack } from "@chakra-ui/react";
+
+import ActivityItem from "./ActivityItem";
+import { Activity } from "../../types";
 
 const GET_ACTIVITIES_QUERY = gql`
   query getActivities {
     activities {
       id
-      title
+      template {
+        id
+        title
+      }
     }
   }
 `;
@@ -18,11 +23,11 @@ type Props = {
 
 export function ActivityList({ items }: Props) {
   return (
-    <div>
+    <Stack spacing="2">
       {items.map((item) => (
         <ActivityItem item={item} key={item.id} />
       ))}
-    </div>
+    </Stack>
   );
 }
 
