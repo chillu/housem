@@ -32,3 +32,40 @@ about the architecture and moving parts of this stack.
  * Build a serverless action to test out Hasura's approach
  * Integrate with Auth0 and understand how to secure user data
  * Deploy a production-like application with NextJS and Hasura
+
+## Installation
+
+There's a few moving parts which aren't automated.
+
+### Requirements
+
+ * Node
+ * Yarn
+ * [Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html)
+### Application Setup
+
+```
+yarn
+```
+### Hasura Setup
+
+ * Create a Hasura server
+ * Configure the Hasura CLI in `hasura/.env` (see `hasura/.env.sample`)
+ * Configure the GraphQL endpoints in `.env` (see `.env.sample`)
+ * Configure `endpoint` in `hasura/config.yml`
+ * Apply Hasura metadata with `hasura metadata apply`
+ * Apply Hasura migrations (creating the database schema) with `hasura migrate apply`
+### Auth0 Setup
+
+ * Follow this [tutorial](https://hasura.io/docs/latest/graphql/core/guides/integrations/auth0-jwt.html) to setup Auth0
+ * Configure the Auth0 metadata in `.env` (see `.env.sample`)
+
+## Development
+
+```
+yarn dev
+```
+
+## Deployment
+
+TODO
