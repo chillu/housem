@@ -9,6 +9,9 @@ const GET_TEMPLATES_QUERY = gql`
     templates {
       id
       title
+      area {
+        id
+      }
     }
   }
 `;
@@ -23,5 +26,5 @@ export default function Onboarding() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error :(</div>;
 
-  return <Creator templateIds={data.templates.map((t) => t.id)} />;
+  return <Creator templates={data.templates} />;
 }

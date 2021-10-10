@@ -14,6 +14,10 @@ const GET_ACTIVITIES_SUB = gql`
         id
         title
       }
+      area {
+        id
+        title
+      }
     }
   }
 `;
