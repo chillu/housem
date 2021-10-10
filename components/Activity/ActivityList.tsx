@@ -3,6 +3,7 @@ import { useSubscription } from "@apollo/react-hooks";
 import { Stack } from "@chakra-ui/react";
 
 import ActivityItem from "./ActivityItem";
+import Onboarding from "../Onboarding/Onboarding";
 import { Activity } from "../../types";
 
 const GET_ACTIVITIES_SUB = gql`
@@ -35,5 +36,10 @@ export default function ActivityListQuery() {
   const { loading, error, data } = useSubscription(GET_ACTIVITIES_SUB);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error :(</div>;
+
+  if (!data.activities.length) {
+    return <Onboarding />;
+  }
+
   return <ActivityList items={data.activities} />;
 }
