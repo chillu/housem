@@ -1,0 +1,1 @@
+ALTER TABLE public.activities DROP CONSTRAINT my_activities_user_id_fkey;
