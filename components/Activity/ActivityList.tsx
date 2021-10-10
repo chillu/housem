@@ -1,12 +1,12 @@
 import gql from "graphql-tag";
-import { useQuery } from "@apollo/react-hooks";
+import { useSubscription } from "@apollo/react-hooks";
 import { Stack } from "@chakra-ui/react";
 
 import ActivityItem from "./ActivityItem";
 import { Activity } from "../../types";
 
-const GET_ACTIVITIES_QUERY = gql`
-  query getActivities {
+const GET_ACTIVITIES_SUB = gql`
+  subscription getActivities {
     activities {
       id
       template {
@@ -32,8 +32,7 @@ export function ActivityList({ items }: Props) {
 }
 
 export default function ActivityListQuery() {
-  const { loading, error, data } = useQuery(GET_ACTIVITIES_QUERY);
-  console.log(error);
+  const { loading, error, data } = useSubscription(GET_ACTIVITIES_SUB);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error :(</div>;
   return <ActivityList items={data.activities} />;
