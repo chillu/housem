@@ -1,0 +1,2 @@
+ALTER TABLE public.activities ADD COLUMN area_id uuid NOT NULL;
+ALTER TABLE public.activities ADD CONSTRAINT activities_area_id_fkey FOREIGN KEY (area_id) REFERENCES public.areas(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
