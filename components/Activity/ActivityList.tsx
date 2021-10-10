@@ -1,10 +1,12 @@
+import { useState } from "react";
 import gql from "graphql-tag";
 import { useSubscription } from "@apollo/react-hooks";
-import { Stack } from "@chakra-ui/react";
+import { Stack, Heading } from "@chakra-ui/react";
 
 import ActivityItem from "./ActivityItem";
+import ActivityControls from "./ActivityControls";
 import Onboarding from "../Onboarding/Onboarding";
-import { Activity } from "../../types";
+import { Activity, Area } from "../../types";
 
 const GET_ACTIVITIES_SUB = gql`
   subscription getActivities {
@@ -22,16 +24,53 @@ const GET_ACTIVITIES_SUB = gql`
   }
 `;
 
-type Props = {
-  items: Activity[];
+type ActivitiesByArea = {
+  area: Area;
+  activities: Activity[];
 };
 
-export function ActivityList({ items }: Props) {
+const groupByArea = (activities: Activity[]): Map<string, ActivitiesByArea> => {
+  return activities.reduce((grouped, activity) => {
+    if (!grouped.has(activity.area.id)) {
+      grouped.set(activity.area.id, {
+        area: activity.area,
+        activities: [],
+      });
+    }
+    grouped.get(activity.area.id).activities.push(activity);
+    return grouped;
+  }, new Map());
+};
+
+type Props = {
+  activities: Activity[];
+};
+
+export function ActivityList({ activities }: Props) {
+  const [isGrouped, setIsGrouped] = useState(false);
+
+  const renderList = () => {
+    if (isGrouped) {
+      const grouped = groupByArea(activities);
+      return [...grouped.values()].map((group) => (
+        <Stack spacing="2" key={group.area.id}>
+          <Heading as="h2">{group.area.title}</Heading>
+          {group.activities.map((activity) => (
+            <ActivityItem activity={activity} key={activity.id} />
+          ))}
+        </Stack>
+      ));
+    } else {
+      return activities.map((activity) => (
+        <ActivityItem activity={activity} key={activity.id} />
+      ));
+    }
+  };
+
   return (
     <Stack spacing="2">
-      {items.map((item) => (
-        <ActivityItem item={item} key={item.id} />
-      ))}
+      <ActivityControls onChangeGrouped={(value) => setIsGrouped(value)} />
+      {renderList()}
     </Stack>
   );
 }
@@ -45,5 +84,5 @@ export default function ActivityListQuery() {
     return <Onboarding />;
   }
 
-  return <ActivityList items={data.activities} />;
+  return <ActivityList activities={data.activities} />;
 }

@@ -3,8 +3,8 @@ import { Box } from "@chakra-ui/react";
 import { Activity } from "../../types";
 
 type Props = {
-  item: Activity;
+  activity: Activity;
 };
-export default function ActivityItem({ item }: Props) {
-  return <Box>{item.template.title}</Box>;
+export default function ActivityItem({ activity }: Props) {
+  return <Box>{activity.template.title}</Box>;
 }
