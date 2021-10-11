@@ -16,8 +16,9 @@ array_relationships:
 select_permissions:
 - permission:
     columns:
+    - area_id
+    - description
     - id
     - title
-    - area_id
     filter: {}
   role: user
