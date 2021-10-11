@@ -1,7 +1,7 @@
-# HomeM - Home Maintenance Reminders
+# HouseM - Home Maintenance Reminders
 --------
 Trialling out a new stack, and the best way to do this is writing your own app.
-This app also happens to a problem for me: Forgetting about home maintenance tasks.
+This app also happens to solve a problem for me: Forgetting about home maintenance tasks.
 It aims to be marginally more useful than this [BRANZ spreadsheet](http://maintainingmyhome.org.nz/assets/Charter/MYH-table-Maintenance-schedule2.pdf).
 
 In short, the app should let you select home maintenance tasks which apply to your situation,
