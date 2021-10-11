@@ -22,7 +22,7 @@
     "graphql-tag": "2.10.3",
     "iso8601-interval": "^1.0.1",
     "isomorphic-unfetch": "3.0.0",
-    "next": "9.4.1",
+    "next": "11.1.1",
     "nookies": "2.3.1",
     "prop-types": "15.7.2",
     "react": "16.13.1",
