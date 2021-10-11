@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
+    "manualtest": "NEXT_PUBLIC_API_MOCKING=1 next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -30,9 +31,14 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "@types/node": "^16.10.2",
     "@types/react": "^17.0.25",
     "babel-plugin-graphql-tag": "2.5.0",
+    "msw": "^0.35.0",
     "typescript": "^4.4.3"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
