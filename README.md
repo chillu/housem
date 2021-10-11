@@ -55,6 +55,13 @@ yarn
  * Configure `endpoint` in `hasura/config.yml`
  * Apply Hasura metadata with `hasura metadata apply`
  * Apply Hasura migrations (creating the database schema) with `hasura migrate apply`
+ * Add some see data
+
+```
+hasura seed apply seeds/default/1633919607928_templates_seed.sql
+hasura seed apply seeds/default/1633919719656_areas_seed.sql
+```
+
 ### Auth0 Setup
 
  * Follow this [tutorial](https://hasura.io/docs/latest/graphql/core/guides/integrations/auth0-jwt.html) to setup Auth0
