@@ -4604,6 +4604,13 @@ isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   resolved "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
 
+iso8601-interval@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/iso8601-interval/-/iso8601-interval-1.0.1.tgz#dafb7b17c3a079cb12d34287c0ad1b594a83854c"
+  integrity sha512-0EkM8ZYsiudnylYA6/BFSZTLmOoyDidUovo+kE8nZI2YBV0SQb8wwWCH4ALxX923zacKui+OxMk2NN3FuFftjA==
+  dependencies:
+    tslib "^2.1.0"
+
 isobject@^2.0.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/isobject/-/isobject-2.1.0.tgz"

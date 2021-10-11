@@ -9,6 +9,7 @@ export type Template = {
   id: string;
   title: string;
   area: Area;
+  interval: string;
 };
 
 export type Activity = {

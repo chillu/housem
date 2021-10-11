@@ -1,0 +1,1 @@
+ALTER TABLE public.templates ADD COLUMN interval TEXT NOT NULL DEFAULT 'P1Y';

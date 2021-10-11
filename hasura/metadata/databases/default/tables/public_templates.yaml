@@ -19,6 +19,7 @@ select_permissions:
     - area_id
     - description
     - id
+    - interval
     - title
     filter: {}
   role: user

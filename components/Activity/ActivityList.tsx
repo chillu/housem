@@ -15,6 +15,7 @@ const GET_ACTIVITIES_SUB = gql`
       template {
         id
         title
+        interval
       }
       area {
         id
