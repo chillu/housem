@@ -16,6 +16,12 @@ with minimal administration, since the reminders are most useful over the span
 of multiple years.
 
 A preview of the app is currently deployed on [housem.vercel.app](https://housem.vercel.app).
+
+## Wireframes
+
+![App wireframe](./resources/wireframes/by_calendar)
+
+More wireframes in [resources/wireframes](./resources/wireframes).
 ## Stack
 
  * NextJS/React/Typescript for application development
