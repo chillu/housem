@@ -19,9 +19,10 @@ A preview of the app is currently deployed on [housem.vercel.app](https://housem
 
 ## Wireframes
 
-![App wireframe](./resources/wireframes/by_calendar)
+![App wireframe](resources/wireframes/by_calendar.jp2)
 
 More wireframes in [resources/wireframes](./resources/wireframes).
+
 ## Stack
 
  * NextJS/React/Typescript for application development
@@ -32,6 +33,7 @@ More wireframes in [resources/wireframes](./resources/wireframes).
 
 I've also [blogged](https://chillu.com/posts/2021/tale-of-server-client-auth0-hasura/)
 about the architecture and moving parts of this stack.
+
 ## My Development Goals
 
  * Try out a hybrid rendering approach (server/client)
@@ -50,6 +52,7 @@ There's a few moving parts which aren't automated.
  * Node
  * Yarn
  * [Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html)
+
 ### Application Setup
 
 ```
